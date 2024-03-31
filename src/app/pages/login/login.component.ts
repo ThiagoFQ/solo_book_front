@@ -27,6 +27,8 @@ interface LoginForm {
 })
 export class LoginComponent {
   loginForm!: FormGroup<LoginForm>;
+  emailPlaceholder = 'email@exemplo.com';
+  passwordPlaceholder = '********';
 
   constructor(
     private router: Router,
@@ -38,7 +40,7 @@ export class LoginComponent {
       password: new FormControl('', [Validators.required, Validators.minLength(6)])
     })
   }
-
+   
   submit(){
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
       next: () => this.toastService.success("Login feito com sucesso!"),
