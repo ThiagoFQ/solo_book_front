@@ -4,3 +4,6 @@
 </div>
 <p>{{ lastFragmentId }}</p>
 <p>{{ fragmentLinks }}</p>
+<div>
+    <app-set-scene-button [fragmentLinks]="fragmentLinks" (sceneIdChange)="updateSceneId($event)"></app-set-scene-button>
+</div>

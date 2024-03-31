@@ -1,24 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, NgZone, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { SetSceneButtonComponent } from "../../components/set-scene-button/set-scene-button.component";
 
 @Component({
-  selector: 'app-user',
-  standalone: true,
-  imports: [ CommonModule ],
-  templateUrl: './user.component.html',
-  styleUrl: './user.component.scss'
+    selector: 'app-user',
+    standalone: true,
+    templateUrl: './user.component.html',
+    styleUrl: './user.component.scss',
+    imports: [CommonModule, SetSceneButtonComponent]
 })
 export class UserComponent implements OnInit {
   fragments: any[] = [];
   fragmentLinks: string[] = [];
   lastFragmentId: number = 0;
-  sceneId: number = 19;
+  sceneId: number = 0;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private changeDetectorRef: ChangeDetectorRef, private zone:NgZone) { }
 
   ngOnInit(): void {
     this.getFragments();
+    console.log('Cena atualizada:', this.sceneId);
+
   }
 
   getFragments(): void {
@@ -48,5 +51,13 @@ export class UserComponent implements OnInit {
           console.error('Erro ao buscar os links do fragmento:', error);
         }
       );
+  }
+
+  updateSceneId(linkId: number): void {
+    this.zone.run(() => {
+      this.sceneId = linkId;
+      console.log('Cena atualizada:', this.sceneId);
+      this.changeDetectorRef.detectChanges();
+    });
   }
 }
