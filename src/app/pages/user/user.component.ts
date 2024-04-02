@@ -20,8 +20,6 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.getFragments();
-    console.log('Cena atualizada:', this.sceneId);
-
   }
 
   getFragments(): void {
@@ -45,7 +43,6 @@ export class UserComponent implements OnInit {
       .subscribe(
         (response) => {
           this.fragmentLinks = response;
-          console.log('Links do fragmento:', this.fragmentLinks);
         },
         (error) => {
           console.error('Erro ao buscar os links do fragmento:', error);
@@ -56,8 +53,12 @@ export class UserComponent implements OnInit {
   updateSceneId(linkId: number): void {
     this.zone.run(() => {
       this.sceneId = linkId;
-      console.log('Cena atualizada:', this.sceneId);
-      this.changeDetectorRef.detectChanges();
+      this.getFragments();
+      this.scrollToTop();
     });
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
