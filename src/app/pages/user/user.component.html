@@ -1,15 +1,24 @@
-<body>
-  <div class="container-scenes">
-    <div *ngFor="let fragment of fragments">
-      <p>{{ fragment.text }}</p>
-    </div>
-    <p>{{ lastFragmentId }}</p>
-    <p>{{ fragmentLinks }}</p>
-    <div class="choices">
-      <app-set-scene-button
-        [fragmentLinks]="fragmentLinks"
-        (sceneIdChange)="updateSceneId($event)"
-      ></app-set-scene-button>
-    </div>
+<main>
+  <div class="painel">
+    <section class="main-section">
+      <div class="container-scenes">
+        <div *ngFor="let fragment of fragments">
+          <p>{{ fragment.text }}</p>
+        </div>
+       
+        <div class="choices">
+          <app-set-scene-button
+            [fragmentLinks]="fragmentLinks"
+            (sceneIdChange)="updateSceneId($event)"
+          ></app-set-scene-button>
+        </div>
+      </div>
+    </section>
   </div>
-</body>
+  <app-footer></app-footer>
+</main>
+
+
+<!--  <p>{{ lastFragmentId }}</p>
+// <p>{{ fragmentLinks }}</p>
+-->

@@ -1,8 +1,8 @@
 @import "../../../styles/variables.scss";
 
 .input-wrapper {
-    color: $text-color;
-    font-size: 16px;
+    color: $font-color-grey;
+    font-size: $font-size-p;
     text-align: start;
 
     label {
@@ -13,23 +13,25 @@
         width: 100%;
         border-radius: 8px;
         display: flex;
+        height: 50px;
         
         .icon {
             padding: 12px;
-            background-color: $primary-color;
+            background-color: $primary-purple;
             border-radius: 0 8px 8px 0;
-
-            img {
-                height: 20px;
-            }
         }
 
         input {
             border: none;
             border-radius: 8px 0 0 8px;
-            background-color: $gray-secondary-bg;
+            background-color: $font-color-grey5;
             padding: 12px 0 12px 20px;
             width: 100%;
+            
+            &::placeholder {
+                color: $font-color-grey7;
+                ;
+            }
         }
     }
 }

@@ -2,13 +2,16 @@ import { ChangeDetectorRef, Component, NgZone, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { SetSceneButtonComponent } from "../../components/set-scene-button/set-scene-button.component";
+import { SidebarComponent } from "../../components/sidebar/sidebar.component";
+import { FooterComponent } from "../../components/footer/footer.component";
+import { Dice20Component } from "../../components/dice-20/dice-20.component";
 
 @Component({
     selector: 'app-user',
     standalone: true,
     templateUrl: './user.component.html',
     styleUrl: './user.component.scss',
-    imports: [CommonModule, SetSceneButtonComponent]
+    imports: [CommonModule, SetSceneButtonComponent, SidebarComponent, FooterComponent, Dice20Component]
 })
 export class UserComponent implements OnInit {
   fragments: any[] = [];

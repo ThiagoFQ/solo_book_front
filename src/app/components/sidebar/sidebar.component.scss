@@ -1,0 +1,38 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 22%; /* 40% da largura da tela */
+    background-color: #333; /* Cor de fundo da sidebar */
+    overflow-y: auto; /* Adicionar scroll se necessário */
+    z-index: 1000; /* Definir uma z-index alta para garantir que fique acima de outros elementos */
+  }
+  
+  .sidebar-content {
+    padding: 20px; /* Adicione preenchimento conforme necessário */
+
+    img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 10px;    
+    }
+  }
+  
+  /* Estilo para os itens da lista */
+  .sidebar-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-content ul li {
+    color: #fff; /* Cor do texto */
+    margin-bottom: 10px; /* Espaçamento entre os itens */
+    cursor: pointer; /* Adicionar cursor apontador */
+  }
+  
+  .sidebar-content ul li:hover {
+    background-color: #555; /* Cor de fundo ao passar o mouse */
+  }
+  
